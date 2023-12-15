@@ -13,6 +13,34 @@ const butt_arr =[];
 
 var timeDisplayEl = $('#time-display');
 
+
+
+const API_KEY1 = "42fc323d-4d1a-441d-a3cf-f4cf388c4ed2";
+const latitude1 = "37.335480";
+const longitude1 = "-121.893028";
+const OPENCHARGE_URL = `https://api.openchargemap.io/v3/poi/?output=json&key=${API_KEY1}&latitude=${latitude1}&longitude=${longitude1}&levelid=3
+&distance=5&maxresults=5&distanceunit=km`
+fetch(OPENCHARGE_URL)
+.then(function(response)
+{
+  return response.json();
+})
+.then(function(data){
+  console.log(data);
+ // console.log(data[0].AddressInfo.Title)
+
+  for (let index = 0; index < data.length; index++) {
+    //DistanceUnit
+    //data[index].AddressInfo.DistanceUnit=1;
+    console.log(data[index].AddressInfo.AddressLine1+" "+data[index].AddressInfo.Town+" "+data[index].AddressInfo.StateOrProvince+" "+data[index].AddressInfo.Postcode)
+    console.log("Distance:"+ (data[index].AddressInfo.Distance*0.62137119).toFixed(2)+" miles");
+    
+  }
+})
+
+
+
+
 function displayTimeDashBoard()
 {
 var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
@@ -224,17 +252,3 @@ function getHistory() {
 
 searchButton.addEventListener('click',getCitylocation);
 current_Location.addEventListener('click',getUserCoordinates);
-
-const API_KEY1 = "42fc323d-4d1a-441d-a3cf-f4cf388c4ed2";
-const latitude1 = "37.335480";
-const longitude1 = "-121.893028";
-const OPENCHARGE_URL = `https://api.openchargemap.io/v3/poi/?output=json&key=${API_KEY1}&latitude=${latitude1}&longitude=${longitude1}&distance=5&maxresults=5`
-fetch(OPENCHARGE_URL)
-.then(function(response)
-{
-  return response.json();
-})
-.then(function(data){
-  console.log(data);
-  console.log(data[0].AddressInfo.Title)
-})
