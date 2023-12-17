@@ -291,14 +291,14 @@ font:bolder;
 .charing-cards .weather-cards li:hover
 {
   font-size: 20px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
   background-color: #a9e626;
   
   
 }li:hover
 {
   font-size: 20px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
   background-color: #a9e626;
   
 }

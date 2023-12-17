@@ -29,7 +29,7 @@ html {
 {
   display: flex;
   flex-direction: row;
-  ;
+  
 }
 
 .about-section {
@@ -63,4 +63,11 @@ html {
 
 .footer h2, a {
   font-size: 40px;
+}
+
+.column:hover {
+  background-color: #256dc0;
+  color: white;
+  border-radius: 16px;
+  transition: all 0.8s ease-in-out;
 }
