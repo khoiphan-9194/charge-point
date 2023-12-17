@@ -248,6 +248,7 @@ font-size: 45px;
 
 .lead{
   animation: move 22s infinite linear; /* set the time to what you want of course */
+  font-size: 25px;
 }
 
 .chargers
