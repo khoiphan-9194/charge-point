@@ -160,8 +160,6 @@ font-weight: bolder;
 {
   width: 100%;
   
-
-  
 }
 .current-weather
 {
@@ -174,9 +172,25 @@ font-weight: bolder;
 
 }
 
+.current-weather h2{
+font-weight: bolder;
+font-size: 45px;
+ 
+}
+
+.current-weather h4{
+  font-weight: bolder;
+  font-size: 35px;
+   
+  }
+
+
 .current-weather .weather-detail
 {
   font: 25px bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
@@ -186,6 +200,7 @@ font-weight: bolder;
   margin-left:350px;
  
 }
+
 
 .current-weather .weather-icon h4{
   max-width: 120px;
@@ -250,11 +265,7 @@ font:bolder;
  
 }
 
-.main-layout{
 
-  height: fit-content;
-  
-}
 
 .charing-cards li
 {
