@@ -74,8 +74,9 @@ function showPosition(position) {
 function getOption() {
 
   
-  var value = e.options[e.selectedIndex].text;
-  return value;
+  var value = e.options[e.selectedIndex].text.split(" ");
+  return value[0];
+
 }
 function getCharingPointDetail(lat2,lon2)
 {
