@@ -834,4 +834,5 @@ function getHistory() {
 
 searchButton.addEventListener('click',getCitylocation);
 current_Location.addEventListener('click',getUserCoordinates);
+cityInput.addEventListener("keyup", e => e.key === "Enter" && getCitylocation());
 >>>>>>> 0c1adc0c77c37623d169fe54188db1e5f3168fb6
