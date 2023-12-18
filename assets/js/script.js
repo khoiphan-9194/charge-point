@@ -2,19 +2,18 @@ const searchButton = document.querySelector(".search-btn");
 const cityInput = document.querySelector(".city-input");
 const currentWeatherData = document.querySelector(".current-weather");
 let currentDate =  dayjs().format('MMM-DD-YYYY');
-const API_KEY ="313e19582894eb8e201b929fa986e291";
 const weatherCardsDiv = document.querySelector(".weather-cards");
 let contHistEl = $('.cityHist');
 const current_Location = document.querySelector(".location-btn");
 const cityList =[];
 const butt_arr =[];
 let e = document.getElementById("radius-location");
-
+const API_KEY ="313e19582894eb8e201b929fa986e291";
+const API_KEY1 = "42fc323d-4d1a-441d-a3cf-f4cf388c4ed2";
 var timeDisplayEl = $('#time-display');
 
 //
 //const GEO_API="AIzaSyA1lo2L-7mxPdDWeieZjKek-eBSVH9QWD0";
-const API_KEY1 = "42fc323d-4d1a-441d-a3cf-f4cf388c4ed2";
 
 /*
 const GoogleURL = `https://maps.googleapis.com/maps/api/geocode/json?address=Campbell,+CA&key=${GEO_API}`;
@@ -25,18 +24,14 @@ fetch(GoogleURL)
 })
 .then(function(data){
   console.log(data);
-
 })
 
-//37.2871651
-//-121.9499568
 */
 
 function getLocation() {
   if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(showPosition);
   } else { 
-   // x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
@@ -102,32 +97,9 @@ function getCharingPointDetail(lat2,lon2)
           console.log(data);
          // console.log(data[0].AddressInfo.Title)
 
-         /*
-         1551 Parkmoor Ave San Jose CA 95128
- Distance: 5.69 miles
- Charge Level: Level 3:  High (Over 40kW)
-Providing Capability: ChargePoint
- Number Charging station: null
- Cost null
-  for (let index = 0; index < fiveDay_forecast.length; index++) {
-       $('.card'+index+' h3').text(foreCastDataList[index].dt_txt.split(" ")[0]);
-       var url_icon = "https://openweathermap.org/img/wn/"+foreCastDataList[index].weather[0].icon+"@2x.png";
-       $('.card'+index+' img').attr('src',url_icon);
-       $(('.card'+index)+ ' .2').text((((foreCastDataList[index].main.temp- 273.15) * 9/5) + 32).toFixed(0)+"°F");
-      $(('.card'+index)+ ' .3').text(foreCastDataList[index].wind.speed);
-      $(('.card'+index)+ ' .4').text(foreCastDataList[index].main.humidity);
-           <li class="charger-card0">
-                <h3>........</h3> 
-                <img src="./assets/img/charging_icon.png" alt="charging-icon">
-                <h4>Level: <span class="5"></span></h4>
-                <h4>Distance from you: <span class="6"></span></h4>
-                <h4>Address: <span class="7"></span></h4>
-              </li>
-         */
 
           for (let index = 0; index < data.length; index++) {
-            //DistanceUnit
-            //data[index].AddressInfo.DistanceUnit=1;
+      
             /*
             console.log(data[index].AddressInfo.AddressLine1+" "+data[index].AddressInfo.Town+" "+data[index].AddressInfo.StateOrProvince+" "+data[index].AddressInfo.Postcode)
             console.log("Distance: "+ (calcCrow(latitude,longitude,data[index].AddressInfo.Latitude,data[index].AddressInfo.Longitude)).toFixed(2)+" miles");
@@ -143,7 +115,7 @@ Providing Capability: ChargePoint
             */
             $('.charger-card'+index+' img').attr('src','./assets/img/charging_icon.png');
             $('.charger-card'+index+' h3').text((data[index].Connections[0].Level.Title)+"\n");
-           $(('.charger-card'+index)+ ' .5').text((calcCrow(latitude,longitude,data[index].AddressInfo.Latitude,data[index].AddressInfo.Longitude)).toFixed(2)+" miles\n");
+            $(('.charger-card'+index)+ ' .5').text((calcCrow(latitude,longitude,data[index].AddressInfo.Latitude,data[index].AddressInfo.Longitude)).toFixed(2)+" miles\n");
 
 
            if(data[index].OperatorInfo!=null)
@@ -156,6 +128,7 @@ Providing Capability: ChargePoint
           {
             $(('.charger-card'+index)+ ' .7').text(" Not Available");
             $(('.charger-card'+index)+ ' .8').text(" Not Available");
+
             $(('.charger-card'+index)+ ' .9').text(data[index].AddressInfo.AddressLine1+" "+
             data[index].AddressInfo.Town+"\n"+data[index].AddressInfo.StateOrProvince+", "+
             data[index].AddressInfo.Postcode);
@@ -287,13 +260,13 @@ function getCitylocation()
         {
             if(!data.length)
             return alert (`${cityName} is invalid, please re-check the input`);
-      //  var namecity =data[0].name;
+        //  var namecity =data[0].name;
        // console.log("name: "+namecity);
             console.log(data);
            const {name,lat,lon} =data[0];
          //    console.log("Name: "+ name);
-       //   console.log("Lat: "+lat);
-         //   console.log("Long: "+lon);
+        //   console.log("Lat: "+lat);
+        //   console.log("Long: "+lon);
 
          const data_object = {
           cityName: name,
@@ -313,7 +286,7 @@ function getCitylocation()
             
            }
         
-        //   console.log(butt_arr.length+"----");
+         //   console.log(butt_arr.length+"----");
        
           localStorage.setItem('city', JSON.stringify(cityList));
           console.log(cityList.length+" length");
